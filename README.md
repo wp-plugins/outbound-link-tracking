@@ -1,5 +1,4 @@
-Outbound-Link-Tracking
-======================
+=== Outbound-Link-Tracking ===
 Contributors: mmcachran
 Tags: outbound links, google analytics
 Requires at least: 3.8
