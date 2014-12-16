@@ -2,7 +2,7 @@
 Contributors: mmcachran
 Tags: outbound links, google analytics
 Requires at least: 3.8
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 
 Open outbound links in a new window and track using GA
