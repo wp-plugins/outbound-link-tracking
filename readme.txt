@@ -17,4 +17,7 @@ After activation, all external anchor links on your site will open in a new wind
 
 Example:
 
-<a href="http://google.com" class="no-track">Google</a>
+&lt;a href="http://google.com" class="no-track"&gt;Google&lt;/a&gt;
+
+= 0.2.0 =
+* restructure JS

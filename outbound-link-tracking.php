@@ -28,7 +28,7 @@
 if( ! class_exists( 'Outbound_Link_Tracking' ) ):
 
 class Outbound_Link_Tracking {
-	const VERSION = '0.1.0';
+	const VERSION = '0.2.0';
 	public static $url  = '';
 	public static $path = '';
 	public static $name = '';

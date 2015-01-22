@@ -1,22 +1,31 @@
-(function( $ ) { 
-	$( document ).on( 'ready', function() {
-		outbound_links();
+var OutboundLinkTracking = (function( window, document, $, undefined ) {
+	'use strict';
+	
+	var app = { $links: {} };
+	
+	app.init = function() {
+		app.parseAnchors();
 		
-		// after jQuery ajax requests
+		// run through anchors again on ajax complete
 		$( document ).ajaxComplete(function() {
-	    	setTimeout( outbound_links, 3000 );
+	    	setTimeout( app.parseAnchors, 3000 );
 		});
 		
 		// track outbound links
-		$( document ).on( 'click', '.external-link', function( e ) {
+		$( document ).on( 'click', '.external-link', function( evt ) {
 			var _gaq = _gaq || [];
 			_gaq.push( [ '_trackEvent', 'Outbound Link', this.href ] ); 
 		});
-	});
+	};
 	
-	function outbound_links() {
-		$( 'a' ).not( '.no-track, .internal' ).filter(function() {
+	app.parseAnchors = function() {
+		app.$links = $( 'a' ).not( '.no-track, .internal' ).filter(function() {
 			return this.hostname && this.hostname !== location.hostname;
 		}).attr( 'target', '_blank' ).addClass( 'external-link' );
-	}
-})( jQuery );
+	};
+	
+	$( document ).ready( app.init );
+	
+	return app;
+	
+})( window, document, jQuery );
