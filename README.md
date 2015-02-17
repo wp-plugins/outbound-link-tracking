@@ -19,5 +19,10 @@ Example:
 
 &lt;a href="http://google.com" class="no-track"&gt;Google&lt;/a&gt;
 
+== Changelog ==
+
+= 0.3.0 =
+* JS cleanup, use window._gaq
+
 = 0.2.0 =
 * restructure JS

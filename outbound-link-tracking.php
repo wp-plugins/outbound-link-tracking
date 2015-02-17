@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Outbound Link Tracking
  * Description: Open outbound links in a new window and track using GA
- * Version:     0.2.0
+ * Version:     0.3.0
  * Author:      mmcachran
  * License:     GPLv2+
  * Text Domain: outbound_link_tracking
@@ -28,7 +28,7 @@
 if( ! class_exists( 'Outbound_Link_Tracking' ) ):
 
 class Outbound_Link_Tracking {
-	const VERSION = '0.2.0';
+	const VERSION = '0.3.0';
 	public static $url  = '';
 	public static $path = '';
 	public static $name = '';

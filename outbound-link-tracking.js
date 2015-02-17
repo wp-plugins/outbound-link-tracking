@@ -6,6 +6,9 @@ var OutboundLinkTracking = (function( window, document, $, undefined ) {
 	app.init = function() {
 		app.parseAnchors();
 		
+		// initialize _gaq
+		window._gaq = window._gaq || [];
+		
 		// run through anchors again on ajax complete
 		$( document ).ajaxComplete(function() {
 	    	setTimeout( app.parseAnchors, 3000 );
@@ -13,8 +16,7 @@ var OutboundLinkTracking = (function( window, document, $, undefined ) {
 		
 		// track outbound links
 		$( document ).on( 'click', '.external-link', function( evt ) {
-			var _gaq = _gaq || [];
-			_gaq.push( [ '_trackEvent', 'Outbound Link', this.href ] ); 
+			window._gaq.push( [ '_trackEvent', 'Outbound Link', this.href ] ); 
 		});
 	};
 	
