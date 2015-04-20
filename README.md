@@ -21,6 +21,9 @@ Example:
 
 == Changelog ==
 
+= 0.4.0 =
+* Add support for Ext.js ajax
+
 = 0.3.0 =
 * JS cleanup, use window._gaq
 

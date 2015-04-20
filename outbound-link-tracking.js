@@ -9,11 +9,20 @@ var OutboundLinkTracking = (function( window, document, $, undefined ) {
 		// initialize _gaq
 		window._gaq = window._gaq || [];
 		
-		// run through anchors again on ajax complete
+		// run through anchors again on jQuery ajax complete
 		$( document ).ajaxComplete(function() {
 	    	setTimeout( app.parseAnchors, 3000 );
 		});
-		
+
+		// run through anchors on Ext ajax complete
+		if ( ( 'object' === typeof Ext ) && ( 'object' === typeof Ext.Ajax) ) {
+			Ext.Ajax.on( 'requestcomplete', function( conn, response, options ) {
+				if ( ! Ext.Ajax.isLoading() ) {
+					setTimeout( app.parseAnchors, 3000) ;
+				}
+			});
+		}
+
 		// track outbound links
 		$( document ).on( 'click', '.external-link', function( evt ) {
 			window._gaq.push( [ '_trackEvent', 'Outbound Link', this.href ] ); 
